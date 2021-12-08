@@ -8,9 +8,9 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var checkBtn: UIButton!
+    @IBOutlet weak var ckeckBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
