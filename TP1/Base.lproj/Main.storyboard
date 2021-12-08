@@ -152,16 +152,8 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="NEW TASK" id="dhr-e4-BE7">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lOa-1N-SOY">
-                                            <connections>
-                                                <segue destination="zz6-kt-Z1m" kind="unwind" identifier="cancel" unwindAction="unwindToMainView:" id="j51-7r-8Z0"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="H7P-1z-sfI">
-                                            <connections>
-                                                <segue destination="zz6-kt-Z1m" kind="unwind" identifier="save" unwindAction="unwindToMainView:" id="CLq-qi-gRm"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lOa-1N-SOY"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="H7P-1z-sfI"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -179,7 +171,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Add" id="Z4j-6f-Tls">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gcW-2c-jMT"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gcW-2c-jMT">
+                                            <connections>
+                                                <segue destination="zz6-kt-Z1m" kind="unwind" identifier="cancel" unwindAction="unwindToMainView:" id="dgS-MZ-2gI"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="nJ8-ZK-Xj4">
+                                            <connections>
+                                                <segue destination="zz6-kt-Z1m" kind="unwind" identifier="save" unwindAction="unwindToMainView:" id="HWw-9G-YbU"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

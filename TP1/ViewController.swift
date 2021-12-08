@@ -93,7 +93,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         if unwindSegue.identifier == "save" {
             if let myTitle = TaskView.myTitle.text, let myDescription = TaskView.myDesc.text {
                 let new_data = Todo(nom: myTitle,desc: myDescription)
-                todo.append(new_data)
+                todo[0].append(new_data)
                 myTableView.reloadData()
                 }
             }
