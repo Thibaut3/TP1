@@ -66,6 +66,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Find the row of the cell
@@ -84,5 +85,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
     }
 
-}
+    @IBAction func unwindToMainView(_ unwindSegue: UIStoryboardSegue) {
+        let TaskView = unwindSegue.source as! CreateTaskView
+        if unwindSegue.identifier == "cancel" {
+            TaskView.dismiss(animated: true, completion: nil)
+        }
+        if unwindSegue.identifier == "save" {
+            if let myTitle = TaskView.myTitle.text, let myDescription = TaskView.myDesc.text {
+                let new_data = Todo(nom: myTitle,desc: myDescription)
+                todo.append(new_data)
+                myTableView.reloadData()
+                }
+            }
+        }
 
+
+}

@@ -72,9 +72,12 @@
                                 <state key="normal">
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <segue destination="lXq-mu-Xhr" kind="presentation" identifier="add" id="h7h-9P-FCa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My To-Do List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftC-14-7Jr">
-                                <rect key="frame" x="20" y="63" width="374" height="41"/>
+                                <rect key="frame" x="20" y="63" width="324" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
@@ -127,23 +130,16 @@
             </objects>
             <point key="canvasLocation" x="1118.840579710145" y="-132.58928571428572"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Task View-->
         <scene sceneID="8vZ-cu-O4M">
             <objects>
-                <viewController id="lXq-mu-Xhr" sceneMemberID="viewController">
+                <viewController id="lXq-mu-Xhr" customClass="CreateTaskView" customModule="TP1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jjr-kk-eqp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5f-eS-fUk">
-                                <rect key="frame" x="20" y="771" width="374" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" systemColor="systemPurpleColor"/>
-                                <state key="normal" title="CONFIRM TASK CREATION"/>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SET TASK TITLE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jso-75-3Ww">
-                                <rect key="frame" x="20" y="82" width="374" height="85"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SET TASK DESC" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-ut-9nH">
+                                <rect key="frame" x="20" y="252" width="374" height="510"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
@@ -151,8 +147,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SET TASK DESC" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TCk-ut-9nH">
-                                <rect key="frame" x="20" y="192" width="374" height="510"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pCb-p7-68Q">
+                                <rect key="frame" x="20" y="20" width="374" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="NEW TASK" id="dhr-e4-BE7">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lOa-1N-SOY">
+                                            <connections>
+                                                <segue destination="zz6-kt-Z1m" kind="unwind" identifier="cancel" unwindAction="unwindToMainView:" id="j51-7r-8Z0"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="H7P-1z-sfI">
+                                            <connections>
+                                                <segue destination="zz6-kt-Z1m" kind="unwind" identifier="save" unwindAction="unwindToMainView:" id="CLq-qi-gRm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="SET TASK TITLE" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jso-75-3Ww">
+                                <rect key="frame" x="20" y="111" width="374" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" systemColor="systemPurpleColor"/>
@@ -173,10 +187,16 @@
                         <viewLayoutGuide key="safeArea" id="0AK-53-pPx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KAY-Kv-4kV"/>
+                    <connections>
+                        <outlet property="myDesc" destination="TCk-ut-9nH" id="00F-J8-Pq1"/>
+                        <outlet property="myTitle" destination="jso-75-3Ww" id="mDL-Z0-tjQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oo-U7-y2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="zz6-kt-Z1m" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1118.840579710145" y="550.44642857142856"/>
+            <point key="canvasLocation" x="1096" y="583"/>
         </scene>
     </scenes>
     <resources>
