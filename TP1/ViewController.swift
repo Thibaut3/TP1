@@ -26,6 +26,10 @@ class ViewController: UIViewController, UITableViewDataSource {
         myTableView.dataSource = self
     }
     
+    func update_todo (task: Todo){
+        self.todo.append(task)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todo.count
     }
@@ -35,6 +39,19 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.myLabel.text = todo[indexPath.row].nom
         return cell
     }
+    
+    @IBAction func unwindToMainView(_ unwindSegue: UIStoryboardSegue) {
+        let TaskView = unwindSegue.source as! CreateTaskView
+        if unwindSegue.identifier == "cancel" {
+            TaskView.dismiss(animated: true, completion: nil)
+        }
+        if unwindSegue.identifier == "save" {
+            if let myTitle = TaskView.myTitle.text, let myDescription = TaskView.myDesc.text {
+                let new_data = Todo(nom: myTitle,desc: myDescription)
+                todo.append(new_data)
+                myTableView.reloadData()
+                }
+            }
+        }
 
 }
-
