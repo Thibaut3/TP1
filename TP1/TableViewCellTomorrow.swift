@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  TableViewCellTomorrow.swift
 //  TP1
 //
 //  Created by Thibaut Juillard on 08/12/2021.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
-    
-    @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var ckeckBtn: UIButton!
+class TableViewCellTomorrow: UITableViewCell {
+
+    @IBOutlet weak var myLabel2: UILabel!
+    @IBOutlet weak var checkBtn2: UIButton!
     
     var bRec = false
     
@@ -24,14 +24,13 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
-    @IBAction func checkMark(_ sender: UIButton) {
+    @IBAction func check(_ sender: UIButton) {
         bRec = !bRec
             if bRec {
                 sender.setImage(UIImage(named: "iconCheck.png"), for: .normal)
             } else {
                 sender.setImage(UIImage(named: ""), for: .normal)
             }
-        
-     }
+    }
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4231CF202760A366002A4A4C /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4231CF1F2760A366002A4A4C /* DetailsViewController.swift */; };
 		4269C60E2760907F0034D5FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269C60D2760907F0034D5FD /* AppDelegate.swift */; };
 		4269C6102760907F0034D5FD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269C60F2760907F0034D5FD /* SceneDelegate.swift */; };
 		4269C6122760907F0034D5FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4269C6112760907F0034D5FD /* ViewController.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4231CF1F2760A366002A4A4C /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		4269C60A2760907F0034D5FD /* TP1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TP1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4269C60D2760907F0034D5FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4269C60F2760907F0034D5FD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				4269C60F2760907F0034D5FD /* SceneDelegate.swift */,
 				4269C6112760907F0034D5FD /* ViewController.swift */,
 				4269C6132760907F0034D5FD /* Main.storyboard */,
+				4231CF1F2760A366002A4A4C /* DetailsViewController.swift */,
 				4269C626276098310034D5FD /* TableViewCell.swift */,
 				4269C616276090800034D5FD /* Assets.xcassets */,
 				4269C618276090800034D5FD /* LaunchScreen.storyboard */,
@@ -148,6 +151,7 @@
 				4269C60E2760907F0034D5FD /* AppDelegate.swift in Sources */,
 				4269C6102760907F0034D5FD /* SceneDelegate.swift in Sources */,
 				4269C6232760912A0034D5FD /* Todo.swift in Sources */,
+				4231CF202760A366002A4A4C /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
