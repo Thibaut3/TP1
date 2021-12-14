@@ -66,34 +66,67 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Find the row of the cell
             let row = indexPath.row
-            todo.remove(at: row)
+            let section = indexPath.section
+            todo[section].remove(at: row)
             myTableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
+        
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "details" {
             let detailsViewController = segue.destination as! DetailsViewController
             let myIndexPath = myTableView.indexPathForSelectedRow!
             let row = myIndexPath.row
-            detailsViewController.todo = todo[0][row]
+            let section = myIndexPath.section
+            detailsViewController.todo = todo[section][row]
         }
     }
-
+   
     @IBAction func unwindToMainView(_ unwindSegue: UIStoryboardSegue) {
         let TaskView = unwindSegue.source as! CreateTaskView
         if unwindSegue.identifier == "cancel" {
             TaskView.dismiss(animated: true, completion: nil)
         }
         if unwindSegue.identifier == "save" {
+            
+            // get the current date and time
+            let currentDateTime = Date()
+            // get the user's calendar
+            let userCalendar = Calendar.current
+            // choose which date and time components are needed
+            let requestedComponents: Set<Calendar.Component> = [
+                .weekOfYear,
+                .year,
+                .month,
+                .day,
+                .hour,
+                .minute,
+                .second
+            ]
+                
+            // get the components
+            let dateTimeComponents = userCalendar.dateComponents(requestedComponents, from: currentDateTime)
+            // get the components from UI
+            let dateRes = userCalendar.dateComponents(requestedComponents, from: TaskView.myDate.date)
+            
+            var i = 0
+            if(dateTimeComponents.year != dateRes.year || dateTimeComponents.month != dateRes.month || dateTimeComponents.weekOfYear != dateRes.weekOfYear){ //other
+                i = 3
+            }else if(dateTimeComponents.day == dateRes.day){ //today
+                i = 0
+            }else if ((dateTimeComponents.day! + 1) == dateRes.day){//tomorrow
+                i = 1
+            }else if(dateTimeComponents.weekOfYear == dateRes.weekOfYear){//this week
+                i = 2
+            }
+            
             if let myTitle = TaskView.myTitle.text, let myDescription = TaskView.myDesc.text {
                 let new_data = Todo(nom: myTitle,desc: myDescription)
-                todo[0].append(new_data)
+                todo[i].append(new_data)
                 myTableView.reloadData()
                 }
             }
