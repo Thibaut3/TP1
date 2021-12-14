@@ -24,7 +24,7 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
     @IBAction func checkMark(_ sender: UIButton) {
         bRec = !bRec
             if bRec {
