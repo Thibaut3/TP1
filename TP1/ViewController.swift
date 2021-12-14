@@ -12,6 +12,12 @@ class ViewController: UIViewController, UITableViewDataSource {
     var todo =  [[Todo](),[Todo](),[Todo](),[Todo]()]
     
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var myFiltre: UITextField!
+    
+    @IBAction func searchCategorie(_ sender: UIButton) {
+        let text = myFiltre.text
+        myTableView.deleteSections(IndexSet.init(integer: 1), with: .fade)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
