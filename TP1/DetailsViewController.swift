@@ -11,6 +11,8 @@ class DetailsViewController: UIViewController {
 
     var todo : Todo?
     
+   
+    
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var taskDesc: UILabel!
     

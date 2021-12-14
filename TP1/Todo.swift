@@ -12,8 +12,9 @@ class Todo{
     var nom = ""
     var desc = ""
     var categories = [Category]()
-    init(nom : String, desc : String){
+    init(nom : String, desc : String, categories: [Category]){
         self.nom = nom
         self.desc = desc
+        self.categories = categories
     }
 }

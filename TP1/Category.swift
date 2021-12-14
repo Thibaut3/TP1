@@ -11,7 +11,7 @@ class Category{
     var name = ""
     var state = false
     
-    init (name : String, state : Bool){
+    init (name : String, state : Bool = false){
         self.name = name
         self.state = state
     }

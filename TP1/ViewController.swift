@@ -7,9 +7,14 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController, UITableViewDataSource {
     
     var todo =  [[Todo](),[Todo](),[Todo](),[Todo]()]
+    
+    var categoryList = [Category] ()
+
     
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var myFiltre: UITextField!
@@ -24,13 +29,16 @@ class ViewController: UIViewController, UITableViewDataSource {
         // Do any additional setup after loading the view.
         for i in 1...5 {
             todo[0].append(Todo(nom: "Ingrédient " + String(i),
-                                 desc: "Description numéro " + String(i) ))
+                                 desc: "Description numéro " + String(i), categories: [] ))
         }
         for i in 1...3{
             todo[1].append(Todo(nom: "Ingrédient " + String(i),
-                                 desc: "Description numéro " + String(i) ))
+                                 desc: "Description numéro " + String(i),  categories: []  ))
         }
         
+        categoryList.append(Category(name: "Category 1", state: true))
+        categoryList.append(Category(name: "Category 2", state: true))
+        categoryList.append(Category(name: "Category 3", state: true))
         myTableView.dataSource = self
     }
     
@@ -89,6 +97,12 @@ class ViewController: UIViewController, UITableViewDataSource {
             let row = myIndexPath.row
             let section = myIndexPath.section
             detailsViewController.todo = todo[section][row]
+            
+        }
+        if segue.identifier == "add" {
+            let createTaskViewController = segue.destination as! CreateTaskView
+            createTaskViewController.categoryList = categoryList
+            
         }
     }
    
@@ -131,12 +145,16 @@ class ViewController: UIViewController, UITableViewDataSource {
             }
             
             if let myTitle = TaskView.myTitle.text, let myDescription = TaskView.myDesc.text {
-                let new_data = Todo(nom: myTitle,desc: myDescription)
+                let  categories = TaskView.categories
+
+                let new_data = Todo(nom: myTitle,desc: myDescription, categories: categories)
+                
                 todo[i].append(new_data)
                 myTableView.reloadData()
                 }
             }
+        
+        
         }
-
 
 }
