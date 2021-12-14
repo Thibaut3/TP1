@@ -11,7 +11,7 @@ class Todo{
     
     var nom = ""
     var desc = ""
-    
+    var categories = [Category]()
     init(nom : String, desc : String){
         self.nom = nom
         self.desc = desc
