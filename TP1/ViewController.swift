@@ -15,9 +15,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var myFiltre: UITextField!
     
     @IBAction func searchCategorie(_ sender: UIButton) {
-        let text = myFiltre.text
-        myTableView.deleteSections(IndexSet.init(integer: 1), with: .fade)
-    }
+  
+      }
     
     override func viewDidLoad() {
         super.viewDidLoad()
